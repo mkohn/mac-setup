@@ -58,4 +58,6 @@ cask "vlc"
 cask "keybase"
 cask "battle-net"
 cask "private-internet-access"
-
+cask "spotify"
+cask "authy"
+cask "lastpass"
