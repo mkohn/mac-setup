@@ -41,7 +41,6 @@ cp ./ssh-config ~/.ssh/config
 
 ## Needs to be run as root user section
 sudo -s <<EOS
-set -x
 #Disable Zscaler
 grep "zscalertwo" /etc/hosts > /dev/null
 ZHOSTSFILE=$?
