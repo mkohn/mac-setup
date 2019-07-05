@@ -19,13 +19,15 @@ export HISTFILESIZE=10000
 
 test -e "~/.iterm2_shell_integration.bash" && source "~/.iterm2_shell_integration.bash"
 
-# Ruby
-eval "$(rbenv init -)"
-#[[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# guzzi specific 
+if [[ `hostname` = "guzzi"]]; then
+    eval "$(rbenv init -)"
+    source ~/.evident
+    source ~/.artifactory
+fi
 
 source ~/.bash_functions
-source ~/.evident
-source ~/.artifactory
+
 
 # Copies profile and anything else in briefcase to remote hosts
 BRIEFCASE=~/.briefcase
