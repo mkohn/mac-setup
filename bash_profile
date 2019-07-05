@@ -12,10 +12,11 @@ alias 	rake='bundle exec rake'
 alias	findacct='aws organizations describe-account --profile em-master-prod --account-id'
 alias	tf='terraform'
 
+HISTFILE=~/.bash_history
+HISTSIZE=5000
+HISTFILESIZE=10000
+
 export DATE=`date +%Y%m%d_%H%M%S`
-export HISTFILE=~/.bash_history
-export HISTSIZE=5000
-export HISTFILESIZE=10000
 
 test -e "~/.iterm2_shell_integration.bash" && source "~/.iterm2_shell_integration.bash"
 
@@ -129,12 +130,5 @@ function git_color ()
     fi
 }
 
-# Call the above functions inside the PS1 declaration
-export PS1='\[$(git_color)\]$(parse_git_branch)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '
-
-if [ "$PS1" != "" ]
-then
-        PS1="\h \t \w \$ "
-          setenv ()  { export $1="$2"; }
-        unsetenv ()  { unset $*; }
-fi
+  # Call the above functions inside the PS1 declaration
+PS1='\[$(git_color)\]$(parse_git_branch)\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '

@@ -25,7 +25,11 @@ cat <<EOT >> ~/.briefcase
 EOT
 
 # git setup
-cp git-config ~/.git-config
+if [[ ! -f "~/.gitconfig" ]]; then
+	cp git-config ~/.gitconfig
+else
+	echo "Git already has a config file"
+fi
 
 # Configure git Secrets
 git secrets --register-aws --global
