@@ -19,7 +19,7 @@ cp bash_functions ~/.bash_functions
 cp bash_profile ~/.bash_profile
 source ~/.bash_profile
 cat <<EOT >> ~/.briefcase
-.bash_functions`
+.bash_functions
 .bash_profile
 .briefcase
 EOT
