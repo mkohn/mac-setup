@@ -20,7 +20,7 @@ export HISTFILESIZE=10000
 test -e "~/.iterm2_shell_integration.bash" && source "~/.iterm2_shell_integration.bash"
 
 # guzzi specific 
-if [[ `hostname` = "guzzi"]]; then
+if [[ `hostname` == "guzzi" ]];then
     eval "$(rbenv init -)"
     source ~/.evident
     source ~/.artifactory
