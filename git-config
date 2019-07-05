@@ -1,0 +1,25 @@
+[user]
+	name = " Ryan Lucas"
+	email = ryron01@yahoo.com
+[alias]
+  co = checkout
+  ci = commit
+  unci = reset --soft HEAD^
+  stat = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  up = "!git checkout master && git fetch origin && git reset --hard origin/master && git co - && git rebase master"
+  sync = "!git fetch upstream && git checkout master && git merge upstream/master"
+  rmb = !sh -c '(git branch -D $1 >/dev/null 2>&1 || true) && (git push origin :$1 >/dev/null 2>&1 || true) && rm .git/refs/remotes/origin/$1 >/dev/null 2>&1' - # using semiconol -> syntax error :/
+  pru = remote prune origin
+  log = log --pretty=format:'%h %an %Cred%ar %d %Cgreen%s'
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[push]
+	default = current
+

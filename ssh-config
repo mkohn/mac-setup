@@ -1,0 +1,17 @@
+Host *
+  ServerAliveInterval 30
+  ControlMaster auto
+  ControlPath  ~/.ssh/sockets/%r@%h-%p
+  ControlPersist  600
+  AddKeysToAgent yes
+
+Host mediaserver
+    User rlucas
+    identityFile ~/.ssh/id_rsa_ryron01_personal
+
+Host ducati
+    User RyanLucas
+    identityFile ~/.ssh/id_rsa_ryron01_personal
+
+Host guzzi
+    User rlucas
