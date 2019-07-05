@@ -2,9 +2,9 @@
 
 alias   accounts='cd ~/Code/aws-account-management-platform && git fetch && git pull && cd ~/Code/PublicCloud-Utilities && src/make_profile_list.py -o ~/.aws/config -f'	
 alias 	mkpasswd='openssl rand -base64 8'
-alias   vib='vi .bash_profile'
-alias   vif='vi .bash_functions'
-alias   refresh='source .bash_profile;source .bash_functions'
+alias   vib="vi ~/.bash_profile"
+alias   vif="vi ~/.bash_functions"
+alias   refresh="source ~/.bash_profile;source ~/.bash_functions"
 alias   code='cd ~/Code'
 alias   accts='PREVDIR=`pwd`;cd ~/Code/aws-account-management-platform &&  bundle exec rake list_accounts; cd $PREVDIR'
 alias   cflaunch='~/Code/rlucas_scripts/cf_deploystack.sh'

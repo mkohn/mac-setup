@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
 	brew tap -q Homebrew/bundle
 fi
 echo "Installing Brewfile dependencies"
-#brew bundle
+brew bundle
 
 # Setup profile
 cp bash_functions ~/.bash_functions
