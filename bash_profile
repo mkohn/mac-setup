@@ -34,9 +34,10 @@ source ~/.bash_functions
 BRIEFCASE=~/.briefcase
 
 # Check to see whether we have ssh.
-if type -path ssh >&/dev/null; then
-    HAVE_SSH=yes;
-    __SSH=`type -path ssh`
+SSH=`type -path ssh`
+if [[ -n $SSH  ]]; then
+    HAVE_SSH=yes
+    __SSH=$SSH
 else
     unset HAVE_SSH;
 fi
@@ -81,14 +82,16 @@ if [ -n "$HAVE_SSH" ]; then
     # host are preserved.  All files to be synced to the target host
     # should be listed, one per line, in $HOME/.briefcase.
         rsync -uptgo -e $__SSH --files-from=$BRIEFCASE \
-        "$HOME" "$1": || echo "Briefcase sync failed: $!" >&2
+        "$HOME"  "$1":~/ || echo "Briefcase sync failed: $!" >&2
 
         # Now run ssh, with the command line intact. 
         $__SSH $sshargs
     fi
     unset SSH_SKIP_COPY
+    unset ssh
     }  
 fi
+
 # This should do pretty things to git prompt
 parse_git_branch ()
 {
