@@ -1,34 +1,20 @@
 #!/bin/bash
 
-alias   accounts='cd ~/Code/aws-account-management-platform && git fetch && git pull && cd ~/Code/PublicCloud-Utilities && src/make_profile_list.py -o ~/.aws/config -f'	
 alias 	mkpasswd='openssl rand -base64 8'
 alias   vib="vi ~/.bash_profile"
 alias   vif="vi ~/.bash_functions"
 alias   refresh="source ~/.bash_profile;source ~/.bash_functions"
-alias   code='cd ~/Code'
-alias   accts='PREVDIR=`pwd`;cd ~/Code/aws-account-management-platform &&  bundle exec rake list_accounts; cd $PREVDIR'
-alias   cflaunch='~/Code/rlucas_scripts/cf_deploystack.sh'
-alias 	rake='bundle exec rake'
-alias	findacct='aws organizations describe-account --profile em-master-prod --account-id'
 alias	tf='terraform'
 
 HISTFILE=~/.bash_history
-HISTSIZE=5000
-HISTFILESIZE=10000
+HISTSIZE=50000000
+HISTFILESIZE=100000000000
 
 export DATE=`date +%Y%m%d_%H%M%S`
 
 test -e "~/.iterm2_shell_integration.bash" && source "~/.iterm2_shell_integration.bash"
 
-# guzzi specific 
-if [[ `hostname` == "guzzi" ]];then
-    eval "$(rbenv init -)"
-    source ~/.evident
-    source ~/.artifactory
-fi
-
 source ~/.bash_functions
-
 
 # Copies profile and anything else in briefcase to remote hosts
 BRIEFCASE=~/.briefcase
@@ -133,5 +119,7 @@ function git_color ()
     fi
 }
 
-  # Call the above functions inside the PS1 declaration
+export PATH="${PATH}:${HOME}/.bin";
+
+# Call the above functions inside the PS1 declaration
 PS1='\[$(git_color)\]$(parse_git_branch)\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '
